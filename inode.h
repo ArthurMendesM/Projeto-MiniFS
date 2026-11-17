@@ -26,5 +26,6 @@ int buscarArquivo(const char *nome);
 int criarArquivo(const char *nome);
 int removerArquivo(const char *nome);
 int consultarArquivo(const char *nome);
+void listarArquivos();
 
 #endif

@@ -245,3 +245,25 @@ int consultarArquivo(const char *nome) {
 
     return 0;
 }
+
+// Lista todos os arquivos ativos no sistema (comando ls)
+void listarArquivos() {
+    int encontrados = 0;
+
+    printf("\n----- Arquivos no MiniFS -----\n");
+    for (int i = 0; i < MAX_ARQUIVOS; i++) {
+        if (tabelaInodes[i].usado == 1) {
+            printf("ID: %d | Nome: %-20s | Tamanho: %d bytes | Blocos: %d\n",
+                   tabelaInodes[i].id,
+                   tabelaInodes[i].nome,
+                   tabelaInodes[i].tamanho,
+                   tabelaInodes[i].quantidadeBlocos);
+            encontrados++;
+        }
+    }
+
+    if (encontrados == 0) {
+        printf("Nenhum arquivo encontrado.\n");
+    }
+    printf("------------------------------\n");
+}
